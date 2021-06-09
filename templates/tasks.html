@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Past</title>
+</head>
+<body>
+    {% for task in tasks %}
+        {{ task.task_name }}<br>
+        {{ task.category_name }}<br>
+        {{ task.patient_name }}<br>
+        {{ task.patient_age }}<br>
+        {{ task.patient_address }}<br>
+    {% endfor %}
+</body>
+</html>
