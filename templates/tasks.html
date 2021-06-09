@@ -4,11 +4,11 @@
     <h2>I'm extending the base template!</h2>
 
     {% for task in tasks %}
-        {{ task.task_name }}<br>
-        {{ task.category_name }}<br>
-        {{ task.patient_name }}<br>
-        {{ task.patient_age }}<br>
-        {{ task.patient_address }}<br>
+        {{ task.first_name }}<br>
+        {{ task.last_name }}<br>
+        {{ task.age }}<br>
+        {{ task.address }}<br>
+        {{ task.nationality }}<br>
   {% endfor %}
 
 {% endblock %}
