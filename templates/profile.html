@@ -11,4 +11,12 @@
         </div>
     </div>
 
+ {% for task in tasks %}
+        {{ task.first_name }}<br>
+        {{ task.last_name }}<br>
+        {{ task.age }}<br>
+        {{ task.address }}<br>
+        {{ task.nationality }}<br>
+  {% endfor %}
+
 {% endblock %}
