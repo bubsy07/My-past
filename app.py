@@ -99,11 +99,25 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_task")
+@app.route("/add_task", methods=["GET", "POST"])
 def add_task():
+    if request.method == "POST":
+        task = {
+            "category_name": request.form.get("category_name"),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "age": request.form.get("age"),
+            "address": request.form.get("address"),
+            "nationality": request.form.get("nationality"),
+            "created_by": session["user"]
+        }
+        mongo.db.tasks.insert_one(task)
+        flash("Task Successfully Added")
+        return redirect(url_for("get_tasks"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_task.html", categories=categories)
-   
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
