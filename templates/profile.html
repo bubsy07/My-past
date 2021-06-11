@@ -11,27 +11,21 @@
         </div>
     </div>
 
- {% for task in tasks %}
-        {{ task.first_name }}<br>
-        {{ task.last_name }}<br>
-        {{ task.age }}<br>
-        {{ task.address }}<br>
-        {{ task.nationality }}<br>
-  {% endfor %}
-
-   <ul class="collapsible">
+ <ul class="collapsible">
+        {% for task in tasks %}
         <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ task.first_name  }}  {{ task.last_name  }}</strong>
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ task.age }}</strong><br>
+                <strong>{{ task.address }}</strong><br>
+                <strong>{{ task.nationality }}</strong><br>
+                <strong>{{ task.created_by }}</strong><br>
+            </div>
         </li>
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>Second</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>Third</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% endfor %}
     </ul>
-    
+
 {% endblock %}
