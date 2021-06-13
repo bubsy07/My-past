@@ -22,7 +22,14 @@ mongo = PyMongo(app)
 @app.route("/get_tasks")
 def get_tasks():
     tasks = list(mongo.db.tasks.find())
-    return render_template("profile.html", tasks=tasks)
+    return render_template("tasks.html", tasks=tasks)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
+    return render_template("tasks.html", tasks=tasks)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -84,10 +91,10 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    tasks = list(mongo.db.tasks.find())
 
     if session["user"]:
-        return render_template("profile.html", username=username, tasks=tasks)
+        return render_template("tasks.html", username=username)
+        
     return redirect(url_for("login"))
 
 
