@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/get_tasks")
 def get_tasks():
     tasks = list(mongo.db.tasks.find())
-    return render_template("tasks.html", tasks=tasks)
+    return render_template("profile.html", tasks=tasks)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -124,7 +124,7 @@ def edit_task(task_id):
     task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_task.html", task=task, categories=categories)
-    
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
