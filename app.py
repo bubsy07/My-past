@@ -121,6 +121,19 @@ def add_task():
 
 @app.route("/edit_task/<task_id>", methods=["GET", "POST"])
 def edit_task(task_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "age": request.form.get("age"),
+            "address": request.form.get("address"),
+            "nationality": request.form.get("nationality"),
+            "created_by": session["user"]
+        }
+        mongo.db.tasks.update({"_id": ObjectId(task_id)}, submit)
+        flash("Task Successfully Updated")
+
     task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_task.html", task=task, categories=categories)
