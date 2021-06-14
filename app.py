@@ -72,7 +72,7 @@ def login():
                         flash("Welcome, {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
-                            "profile", username=session["user"]))
+                            "get_tasks", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -110,12 +110,14 @@ def logout():
 def add_task():
     if request.method == "POST":
         task = {
-            "category_name": request.form.get("category_name"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "age": request.form.get("age"),
             "address": request.form.get("address"),
             "nationality": request.form.get("nationality"),
+            "work_history": request.form.get("work_history"),
+            "profession": request.form.get("profession"),
+            "hobbies": request.form.get("hobbies"),
             "created_by": session["user"]
         }
         mongo.db.tasks.insert_one(task)
@@ -130,12 +132,14 @@ def add_task():
 def edit_task(task_id):
     if request.method == "POST":
         submit = {
-            "category_name": request.form.get("category_name"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "age": request.form.get("age"),
             "address": request.form.get("address"),
             "nationality": request.form.get("nationality"),
+            "work_history": request.form.get("work_history"),
+            "profession": request.form.get("profession"),
+            "hobbies": request.form.get("hobbies"),
             "created_by": session["user"]
         }
         mongo.db.tasks.update({"_id": ObjectId(task_id)}, submit)

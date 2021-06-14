@@ -1,27 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Add Person</h3>
-            <!-- category selection -->
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('add_task') }}">
-            <div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
-                        {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endfor %}
-                    </select>
-					<label for="category_name">Task Category</label>
-				</div>
-			</div>
+    <h3 class="grey-text text-darken-3 center-align openpage-text">Add Person</h3>
+    
             <!-- first name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="first_name" name="first_name" minlength="5" maxlength="50"
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="first_name" name="first_name" minlength="2" maxlength="50"
                         type="text" class="validate" required>
                     <label for="first_name">First Name</label>
                 </div>
@@ -29,8 +15,8 @@
             <!-- last name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="last_name" name="last_name" minlength="5" maxlength="50"
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="last_name" name="last_name" minlength="2" maxlength="50"
                         type="text" class="validate" required>
                     <label for="last_name">Last Name</label>
                 </div>
@@ -38,7 +24,7 @@
              <!-- age picker -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-calendar-alt prefix grey-text text-darken-3"></i>
                     <input id="age" name="age" type="text" class="datepicker validate" required>
                     <label for="age">Age</label>
                 </div>
@@ -46,8 +32,8 @@
                 <!-- address -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="address" name="address" minlength="5" maxlength="50"
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="address" name="address" minlength="2" maxlength="50"
                         type="text" class="validate" required>
                     <label for="address">Address</label>
                 </div>
@@ -55,18 +41,44 @@
             <!-- nationality -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="nationality" name="nationality" minlength="5" maxlength="50"
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="nationality" name="nationality" minlength="2" maxlength="50"
                         type="text" class="validate" required>
                     <label for="nationality">Nationality</label>
                 </div>
             </div>
-
+             <!-- work history -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="work_history" name="work_history" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="work_history">work History</label>
+                </div>
+            </div>
+            <!-- profession -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="profession" name="profession" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="profession">Profession</label>
+                </div>
+            </div>
+            <!-- hobbies -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="hobbies" name="hobbies" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="hobbies">Hobbies</label>
+                </div>
+            </div>
         <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Add Task <i class="fas fa-plus-square right"></i>
+                    <button type="submit" class="btn-large grey darken-3 text-shadow">
+                        Add Person <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
             </div>

@@ -1,30 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Edit Person</h3>
-            <!-- category selection -->
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('edit_task', task_id=task._id) }}">
-            <div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled>Choose Category</option>
-                        {% for category in categories %}
-                            {% if category.category_name == task.category_name %}
-                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                            {% else %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-					<label for="category_name">Task Category</label>
-				</div>
-			</div>
+    <h3 class="grey-text text-darken-3 center-align openpage-text">Edit Person</h3>
+    
             <!-- first name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
                     <input id="first_name" name="first_name" minlength="5" maxlength="50"
                         value="{{ task.first_name }}" type="text" class="validate" required>
                     <label for="first_name">First Name</label>
@@ -33,7 +15,7 @@
             <!-- last name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
                     <input id="last_name" name="last_name" minlength="5" maxlength="50"
                         value="{{ task.last_name }}" type="text" class="validate" required>
                     <label for="last_name">Last Name</label>
@@ -42,7 +24,7 @@
              <!-- age picker -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-calendar-alt prefix grey-text text-darken-4"></i>
                     <input id="age" name="age" type="text" 
                     value="{{ task.age }}" class="datepicker validate" required>
                     <label for="age">Age</label>
@@ -51,7 +33,7 @@
                 <!-- address -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
                     <input id="address" name="address" minlength="5" maxlength="50"
                         value="{{ task.address }}" type="text" class="validate" required>
                     <label for="address">Address</label>
@@ -60,10 +42,37 @@
             <!-- nationality -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
                     <input id="nationality" name="nationality" minlength="5" maxlength="50"
                         value="{{task.nationality }}" type="text" class="validate" required>
                     <label for="nationality">Nationality</label>
+                </div>
+            </div>
+            <!-- work history -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="work_history" name="work_history" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="work_history">work History</label>
+                </div>
+            </div>
+            <!-- profession -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="profession" name="profession" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="profession">Profession</label>
+                </div>
+            </div>
+            <!-- hobbies -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="hobbies" name="hobbies" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="hobbies">Hobbies</label>
                 </div>
             </div>
 
@@ -74,7 +83,7 @@
                     <a href="{{ url_for('get_tasks') }}" class="btn-large red text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    <button type="submit" class="btn-large grey darken-1 text-shadow">
                         Edit Task <i class="fas fa-edit right"></i>
                     </button>
                 </div>
