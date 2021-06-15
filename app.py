@@ -93,23 +93,22 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("tasks.html", username=username)
-        
+        return render_template("tasks.html", username=username)      
     return redirect(url_for("login"))
 
 
 @app.route("/logout")
 def logout():
     # remove user from session cookie
-    flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("get_tasks"))
 
 
 @app.route("/add_task", methods=["GET", "POST"])
 def add_task():
     if request.method == "POST":
         task = {
+            "category_name": request.form.get("category_name"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "age": request.form.get("age"),
@@ -132,6 +131,7 @@ def add_task():
 def edit_task(task_id):
     if request.method == "POST":
         submit = {
+            "category_name": request.form.get("category_name"),
             "first_name": request.form.get("first_name"),
             "last_name": request.form.get("last_name"),
             "age": request.form.get("age"),

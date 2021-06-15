@@ -2,7 +2,22 @@
 {% block content %}
 
     <h3 class="grey-text text-darken-3 center-align openpage-text">Edit Person</h3>
-    
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('edit_task', task_id=task._id) }}">
+            <!-- category selection -->
+			<div class="row">
+				<div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+					<select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="category_name">Task Category</label>
+				</div>
+            </div>
+            
             <!-- first name -->
             <div class="row">
                 <div class="input-field col s12">
@@ -53,7 +68,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
                     <input id="work_history" name="work_history" minlength="2" maxlength="50"
-                        type="text" class="validate" required>
+                        value="{{task.work_history }}" type="text" class="validate" required>
                     <label for="work_history">work History</label>
                 </div>
             </div>
@@ -62,7 +77,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
                     <input id="profession" name="profession" minlength="2" maxlength="50"
-                        type="text" class="validate" required>
+                        value="{{task.profession }}" type="text" class="validate" required>
                     <label for="profession">Profession</label>
                 </div>
             </div>
@@ -71,7 +86,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
                     <input id="hobbies" name="hobbies" minlength="2" maxlength="50"
-                        type="text" class="validate" required>
+                        value="{{task.hobbies }}" type="text" class="validate" required>
                     <label for="hobbies">Hobbies</label>
                 </div>
             </div>
@@ -83,7 +98,7 @@
                     <a href="{{ url_for('get_tasks') }}" class="btn-large red text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
-                    <button type="submit" class="btn-large grey darken-1 text-shadow">
+                    <button type="submit" class="btn-large grey darken-2 text-shadow">
                         Edit Task <i class="fas fa-edit right"></i>
                     </button>
                 </div>
