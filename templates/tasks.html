@@ -38,12 +38,13 @@
                 <strong>{{ task.first_name  }}  {{ task.last_name  }}</strong>
             </div>
             <div class="collapsible-body">
-                <strong>{{ task.age }}</strong><br>
-                <strong>{{ task.address }}</strong><br>
-                <strong>{{ task.nationality }}</strong><br>
-                <strong>{{ task.work_history }}</strong><br>
-                <strong>{{ task.profession }}</strong><br>
-                <strong>{{ task.hobbies }}</strong><br>
+                <strong>Age :</strong> <tab1>{{ task.age }}</tab1><br>
+                <strong>Address :</strong> <tab2>{{ task.address }}</tab2><br>
+                <strong>Nationality :</strong> <tab3>{{ task.nationality }}</tab3><br>
+                <strong>Work History :</strong> <tab4>{{ task.work_history }}</tab4><br>
+                <strong> Profession :</strong>  <tab5>{{ task.profession }}</tab5><br>
+                <strong>Hobbies :</strong> <tab6>{{ task.hobbies }}</tab6><br>
+                <strong>Misc :</strong> <tab7>{{ task.misc }}</tab7><br>
                 <p><em>by: {{ task.created_by }}</em></p>
             </div>
         </li>

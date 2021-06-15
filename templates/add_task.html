@@ -5,18 +5,16 @@
     
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('add_task') }}">
-            <!-- category selection -->
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
+                         <!-- category selection -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix grey-text text-darken-3"></i>
+                    <input id="category_name" name="category_name" class="validate" required
+                        
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}"</option>
                         {% endfor %}
-                    </select>
-					<label for="category_name">Task Category</label>
-				</div>
+                </div>
             </div>
             
             <!-- first name -->
@@ -88,6 +86,15 @@
                     <input id="hobbies" name="hobbies" minlength="2" maxlength="50"
                         type="text" class="validate" required>
                     <label for="hobbies">Hobbies</label>
+                </div>
+            </div>
+            <!-- misc -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="misc" name="misc" minlength="2" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="misc">Misc</label>
                 </div>
             </div>
         <!-- submit button -->

@@ -79,3 +79,31 @@
 .s {color: purple;}
 .t{color: blue;}
 
+tab1 {
+    display: inline-block;
+    margin-left: 82px;
+}
+tab2 {
+    display: inline-block;
+    margin-left: 55px;
+}
+tab3 {
+    display: inline-block;
+    margin-left: 35px;
+}
+tab4 {
+    display: inline-block;
+    margin-left: 20px;
+}
+tab5 {
+    display: inline-block;
+    margin-left: 39px;
+}
+tab6 {
+    display: inline-block;
+    margin-left: 52px;
+}
+tab7 {
+    display: inline-block;
+    margin-left: 77px;
+}

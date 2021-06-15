@@ -8,13 +8,8 @@
 			<div class="row">
 				<div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
-                        {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endfor %}
-                    </select>
-					<label for="category_name">Task Category</label>
+					<input id="category_name" name="category_name" minlength="5" maxlength="50"
+                        value="{{ task.category_name }}" type="text" class="validate" required>
 				</div>
             </div>
             
@@ -88,6 +83,15 @@
                     <input id="hobbies" name="hobbies" minlength="2" maxlength="50"
                         value="{{task.hobbies }}" type="text" class="validate" required>
                     <label for="hobbies">Hobbies</label>
+                </div>
+            </div>
+            <!-- misc -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix grey-text text-darken-3"></i>
+                    <input id="misc" name="misc" minlength="2" maxlength="50"
+                        value="{{task.misc }}" type="text" class="validate" required>
+                    <label for="misc">Misc</label>
                 </div>
             </div>
 

@@ -117,6 +117,7 @@ def add_task():
             "work_history": request.form.get("work_history"),
             "profession": request.form.get("profession"),
             "hobbies": request.form.get("hobbies"),
+            "misc": request.form.get("misc"),
             "created_by": session["user"]
         }
         mongo.db.tasks.insert_one(task)
@@ -140,6 +141,7 @@ def edit_task(task_id):
             "work_history": request.form.get("work_history"),
             "profession": request.form.get("profession"),
             "hobbies": request.form.get("hobbies"),
+            "misc": request.form.get("misc"),
             "created_by": session["user"]
         }
         mongo.db.tasks.update({"_id": ObjectId(task_id)}, submit)
