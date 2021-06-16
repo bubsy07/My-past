@@ -40,7 +40,10 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align grey-text text-darken 4">My Past</h4></li>
+            <li><h4 class="center-align grey-text text-darken 4 brand-logo">
+                 <span class="m">M</span><span class="y">y</span>
+                    <span class="p">P</span><span class="a">a</span><span class="s">s</span><span class="t">t</span>
+                </h4></li>
             {% if session.user %}
                         <li><a href="{{ url_for('get_tasks') }}">Database</a></li>
                             {% if session.user|lower == "admin"|lower %}
