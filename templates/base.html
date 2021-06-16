@@ -26,8 +26,10 @@
 					
                     {% if session.user %}
                         <li><a href="{{ url_for('get_tasks') }}">Database</a></li>
-                        <li><a href="{{ url_for('add_task') }}">New Person</a></li>
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            {% if session.user|lower == "admin"|lower %}
+                                <li><a href="{{ url_for('add_task') }}">New Person</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -39,14 +41,15 @@
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align grey-text text-darken 4">My Past</h4></li>
-            <li><a href="{{ url_for('get_tasks') }}">Database</a></li>
             {% if session.user %}
-                
-                <li><a href="{{ url_for('add_task') }}">New Person</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                        <li><a href="{{ url_for('get_tasks') }}">Database</a></li>
+                            {% if session.user|lower == "admin"|lower %}
+                                <li><a href="{{ url_for('add_task') }}">New Person</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
 		</ul>
 	</header>
